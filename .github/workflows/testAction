@@ -1,26 +1,17 @@
+
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CAT.App.D365.Service.Core.Models
 {
-    public class EMSReconBalanceRequest
+    public class MessageTypeModel
     {
-        public EMSReconBalance _request { get; set; }
-
-        public EMSReconBalanceRequest(string company)
-        {
-            _request = new EMSReconBalance
-            {
-                Company = company
-            };
-        }
-    }
-
-    public class EMSReconBalance
-    {
-        public string Company { get; set; }
+        public string? TransactionType { get; set; }
+        public string? TransactionStatus { get; set; }
+        public object? MessageBody { get; set; }
     }
 }
