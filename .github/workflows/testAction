@@ -1,4 +1,4 @@
-using CAT.App.D365.Service.Core.Utilities;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CAT.App.D365.Service.Core.Models
 {
-    public class NotesCriteriaRequest : IRequestCriteria
+    public class PartsBarometerRequest
     {
-        public string JournalName { get; set; }
-        public string[] Reference3 { get; set; }
+        public string CompanyId { get; set; }
+        public JArray Values { get; set; }
     }
 }
