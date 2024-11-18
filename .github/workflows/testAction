@@ -1,1 +1,39 @@
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
+
+namespace CAT.App.D365.Service.Core.Models
+{
+    public class ApiResponse
+    {
+        public string ResponseMessage { get; set; }
+        public object ResponseValue { get; set; }
+        public Dictionary<string, object> AdditionalProperties { get; set; }
+        public object ResponseData { get; set; }
+
+        public string ToJsonString()
+        {
+            var allFields = new Dictionary<string, object>();
+            allFields["ResponseMessage"] = ResponseMessage;
+            allFields["ResponseValue"] = ResponseValue;
+
+            if (AdditionalProperties != null)
+            {
+                foreach (var kvp in AdditionalProperties)
+                {
+                    allFields[kvp.Key] = kvp.Value;
+                }
+            }           
+
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true // For pretty-printing JSON output
+            };
+            return JsonSerializer.Serialize(allFields, options);
+        }
+    }
+}
