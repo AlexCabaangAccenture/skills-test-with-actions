@@ -9,7 +9,6 @@ namespace CAT.App.D365.Service.Core.Models
 {
     public class PartsBarometerRequest
     {
-        public string CompanyId { get; set; }
-        public JArray Values { get; set; }
+        public string CompanyId { get; set; }        public JArray Values { get; set; }
     }
 }
