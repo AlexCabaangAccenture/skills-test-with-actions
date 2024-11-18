@@ -1,17 +1,15 @@
-
+using CAT.App.D365.Service.Core.Utilities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CAT.App.D365.Service.Core.Models
 {
-    public class MessageTypeModel
+    public class NotesCriteriaRequest : IRequestCriteria
     {
-        public string? TransactionType { get; set; }
-        public string? TransactionStatus { get; set; }
-        public object? MessageBody { get; set; }
+        public string JournalName { get; set; }
+        public string[] Reference3 { get; set; }
     }
 }
