@@ -1,23 +1,30 @@
-using Newtonsoft.Json.Linq;
+using CAT.App.D365.Service.Core.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace CAT.App.D365.Service.Core.Models
 {
-    public class BlobMessageRequest
+    public class EMSFICriteriaRequest : IRequestCriteria
     {
-        public string TemplateName { get; set; }
-        public string ContainerName { get; set; }
-        public JObject Content { get; set; }
+        public Cost Costs { get; set; }
+        public Cost Cancel_Costs { get; set; }
+        public Payment Matched_Payments { get; set; }
+        public Payment Unmatched_Payments { get; set; }
     }
 
-    public class BlobInformation
+    public class Cost
     {
-        public string TemplateName { get; set; }
-        public string ContainerName { get; set; }
+        public string[] JournalName { get; set; }
+        public string Reference1 { get; set; }
+        public string[] Reference4 { get; set; }
+        public string LineSense { get; set; }
+    }
+    public class Payment
+    {
+        public string[] JournalName { get; set; }
+        public string LineSense { get; set; }
     }
 }
